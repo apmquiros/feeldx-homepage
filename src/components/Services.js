@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function Services() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const services = [
     {
       category: "Visualisation",
@@ -30,17 +34,26 @@ export default function Services() {
 
   return (
     <section
+      ref={ref}
       id="services"
       className="bg-background text-text px-4 py-20 max-w-7xl mx-auto"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+      >
         Our Core Services
-      </h2>
+      </motion.h2>
 
       <div className="grid gap-8 md:grid-cols-3">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
             className="bg-secondary p-8 rounded-lg shadow hover:shadow-lg transition flex flex-col justify-between"
           >
             <div>
@@ -49,10 +62,7 @@ export default function Services() {
               </h3>
               <ul className="space-y-2 mb-6">
                 {service.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-text pl-2"
-                  >
+                  <li key={i} className="text-text pl-2">
                     {item}
                   </li>
                 ))}
@@ -64,7 +74,7 @@ export default function Services() {
             >
               Read More
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

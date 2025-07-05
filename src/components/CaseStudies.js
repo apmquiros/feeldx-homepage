@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function CaseStudies() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const cases = [
     {
       title: "Urban Infrastructure Upgrade",
@@ -21,17 +25,26 @@ export default function CaseStudies() {
 
   return (
     <section
+      ref={ref}
       id="case"
       className="bg-background text-text px-4 py-20 max-w-7xl mx-auto"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+      >
         Case Studies
-      </h2>
+      </motion.h2>
 
       <div className="grid gap-8 md:grid-cols-3">
         {cases.map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
             className="bg-secondary rounded-lg shadow hover:shadow-lg transition overflow-hidden"
           >
             <img
@@ -51,7 +64,7 @@ export default function CaseStudies() {
                 View Project
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
