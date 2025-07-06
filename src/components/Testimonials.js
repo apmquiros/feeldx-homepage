@@ -82,7 +82,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="bg-secondary text-text px-4 py-20 max-w-3xl mx-auto text-center"
+      className="bg-secondary text-text px-4 pt-20 pb-32 max-w-3xl mx-auto text-center"
       aria-label="Testimonials Carousel"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">

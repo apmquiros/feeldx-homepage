@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Services() {
   const ref = useRef(null);
@@ -70,7 +71,11 @@ export default function Services() {
             </div>
             <a
               href="#services"
-              className="inline-block bg-primary text-background px-4 py-2 rounded-md font-semibold hover:bg-accent transition text-center"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("services", -80);
+              }}
+              className="inline-block bg-primary text-background px-4 py-2 rounded-md font-semibold hover:bg-accent active:bg-primary focus:outline-none transition text-center"
             >
               Read More
             </a>

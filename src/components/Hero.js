@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -31,10 +32,14 @@ export default function Hero() {
 
       <motion.a
         href="#services"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection("services", -80);
+        }}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="inline-block bg-primary text-background px-8 py-4 rounded-md text-lg font-semibold hover:bg-accent transition"
+        className="inline-block bg-primary text-background px-8 py-4 rounded-md text-lg font-semibold hover:bg-accent active:bg-background transition focus:outline-none"
       >
         Explore Our Services
       </motion.a>

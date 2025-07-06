@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Footer() {
   const ref = useRef(null);
@@ -25,7 +26,7 @@ export default function Footer() {
             Email:{" "}
             <a
               href="mailto:info@feeldx.com"
-              className="underline hover:text-accent"
+              className="underline hover:text-accent active:text-background focus:outline-none"
             >
               info@feeldx.com
             </a>
@@ -34,7 +35,7 @@ export default function Footer() {
             Phone:{" "}
             <a
               href="tel:+1234567890"
-              className="underline hover:text-accent"
+              className="underline hover:text-accent active:text-background focus:outline-none"
             >
               +1 (234) 567-890
             </a>
@@ -46,27 +47,47 @@ export default function Footer() {
           <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
             <li>
-              <a href="#services" className="hover:text-accent">
+              <a href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("services", -80);
+                }} className="hover:text-accent active:text-background focus:outline-none active">
                 Services
               </a>
             </li>
             <li>
-              <a href="#value" className="hover:text-accent">
+              <a href="#value"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("value", -80);
+                }} className="hover:text-accent active:text-background focus:outline-none">
                 Why FEELDX
               </a>
             </li>
             <li>
-              <a href="#case" className="hover:text-accent">
+              <a href="#case"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("case", -80);
+                }} className="hover:text-accent active:text-background focus:outline-none">
                 Case Studies
               </a>
             </li>
             <li>
-              <a href="#testimonials" className="hover:text-accent">
+              <a href="#testimonials"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("testimonials", -80);
+                }} className="hover:text-accent active:text-background focus:outline-none">
                 Testimonials
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-accent">
+              <a href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("contact", -80);
+                }} className="hover:text-accent active:text-background focus:outline-none">
                 Contact
               </a>
             </li>

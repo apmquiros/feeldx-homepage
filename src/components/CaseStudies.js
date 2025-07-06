@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function CaseStudies() {
   const ref = useRef(null);
@@ -59,7 +60,11 @@ export default function CaseStudies() {
               <p className="text-text mb-4">{item.description}</p>
               <a
                 href="#case"
-                className="inline-block bg-primary text-background px-4 py-2 rounded-md font-semibold hover:bg-accent transition"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("case", -80);
+                }}
+                className="inline-block bg-primary text-background px-4 py-2 rounded-md font-semibold hover:bg-accent active:bg-primary focus:outline-none transition"
               >
                 View Project
               </a>
