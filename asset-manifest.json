@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/feeldx-homepage/static/css/main.0cdd4ddd.css",
-    "main.js": "/feeldx-homepage/static/js/main.b0a3ca6f.js",
+    "main.css": "/feeldx-homepage/static/css/main.fb2221e0.css",
+    "main.js": "/feeldx-homepage/static/js/main.47c22bf6.js",
     "index.html": "/feeldx-homepage/index.html",
-    "main.0cdd4ddd.css.map": "/feeldx-homepage/static/css/main.0cdd4ddd.css.map",
-    "main.b0a3ca6f.js.map": "/feeldx-homepage/static/js/main.b0a3ca6f.js.map"
+    "main.fb2221e0.css.map": "/feeldx-homepage/static/css/main.fb2221e0.css.map",
+    "main.47c22bf6.js.map": "/feeldx-homepage/static/js/main.47c22bf6.js.map"
   },
   "entrypoints": [
-    "static/css/main.0cdd4ddd.css",
-    "static/js/main.b0a3ca6f.js"
+    "static/css/main.fb2221e0.css",
+    "static/js/main.47c22bf6.js"
   ]
 }
